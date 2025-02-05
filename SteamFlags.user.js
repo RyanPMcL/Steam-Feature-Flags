@@ -17,7 +17,7 @@
   "use strict";
   function fetchMultiplayerInfo(appID) {
     const pcgwApiUrl = `https://www.pcgamingwiki.com/api/appid.php?appid=${appID}`;
-    GM.xmlhttpRequest({
+    GM.xmlHttpRequest({
       method: "GET",
       url: pcgwApiUrl,
       onload: function (response) {
@@ -30,16 +30,19 @@
           const localMultiplayerData = extractMultiplayerInfo(
             doc,
             "Local play",
+            2,
             appID
           );
           const lanMultiplayerData = extractMultiplayerInfo(
             doc,
             "LAN play",
+            3,
             appID
           );
           const onlineMultiplayerData = extractMultiplayerInfo(
             doc,
             "Online play",
+            4,
             appID
           );
           updateMultiplayerInfo(
