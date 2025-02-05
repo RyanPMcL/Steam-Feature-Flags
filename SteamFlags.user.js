@@ -17,7 +17,7 @@
   "use strict";
   function fetchMultiplayerInfo(appID) {
     const pcgwApiUrl = `https://www.pcgamingwiki.com/api/appid.php?appid=${appID}`;
-    GM_xmlhttpRequest({
+    GM.xmlhttpRequest({
       method: "GET",
       url: pcgwApiUrl,
       onload: function (response) {
@@ -156,7 +156,7 @@
         multiplayerItem.href = data.link;
         multiplayerItem.target = "_blank";
         multiplayerItem.id = id;
-        multiplayerItem.style.display = GM_getValue(id, true) ? "flex" : "none";
+        multiplayerItem.style.display = GM.getValue(id, true) ? "flex" : "none";
         multiplayerItem.style.alignItems = "center";
         multiplayerItem.innerHTML = `<div class="icon"><img class="category_icon" src="https://store.cloudflare.steamstatic.com/public/images/v6/ico/ico_multiPlayer.png"></div><div class="label">${
           data.type
@@ -215,12 +215,12 @@
     toggleLabel.className = "es_dlc_label";
     const toggleCheckbox = document.createElement("input");
     toggleCheckbox.type = "checkbox";
-    toggleCheckbox.checked = GM_getValue(id, true);
+    toggleCheckbox.checked = GM.getValue(id, true);
     toggleCheckbox.addEventListener("change", () => {
       const element = document.getElementById(id);
       if (element) {
         element.style.display = toggleCheckbox.checked ? "flex" : "none";
-        GM_setValue(id, toggleCheckbox.checked);
+        GM.setValue(id, toggleCheckbox.checked);
       }
     });
     toggleLabel.appendChild(toggleCheckbox);
@@ -231,7 +231,7 @@
       const element = document.getElementById(id);
       if (element) {
         element.style.display = toggleCheckbox.checked ? "flex" : "none";
-        GM_setValue(id, toggleCheckbox.checked);
+        GM.setValue(id, toggleCheckbox.checked);
       }
     });
     return toggleContainer;
