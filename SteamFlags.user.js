@@ -6,7 +6,7 @@
 // @namespace   https://ryan-mclaughlin.ca
 // @updateURL   https://raw.githubusercontent.com/RyanPMcL/Steam-Feature-Flags/refs/heads/main/SteamFlags.user.js
 // @downloadURL https://raw.githubusercontent.com/RyanPMcL/Steam-Feature-Flags/refs/heads/main/SteamFlags.user.js
-// @match       https://store.steampowered.com/app/*
+// @match       *://store.steampowered.com/app/*
 // @connect     *
 // @grant       GM.getValue
 // @grant       GM.setValue
@@ -161,7 +161,7 @@
         multiplayerItem.id = id;
         multiplayerItem.style.display = GM.getValue(id, true) ? "flex" : "none";
         multiplayerItem.style.alignItems = "center";
-        multiplayerItem.innerHTML = `<div class="icon"><img class="category_icon" src="https://store.cloudflare.steamstatic.com/public/images/v6/ico/ico_multiPlayer.png"></div><div class="label">${
+        multiplayerItem.innerHTML = `<div class="icon"><img class="category_icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAQAAAD3NpPtAAABrElEQVR42u2WoY7CQBRFNwSBqKqoIGlIampImtQQFKIGh6pANqnpF6BXoNC4/YD9BD4Av4pPqCHBVOHObiaTyUw7TaawOM5zb/J6O3duJ/148+YhSPjiQk3ND0fiV8ksadC5kr5CZsyZNqfnH+sREuJrnZguDYFa94mZMx0mM6egErVmInsrbCRibURGJWuD5yrjU2m1lN0MG6lYS42JtfN+jLFcdhd0uSOSR25MlEyeEcro0jD/W5kIo/UK3IQiY2gju5/YKEVwSlPIIRIWx7eMpD02Min0jzuKuFusm1qFfMdP0zjcSPUPtNmplLruyISVLUGse8Idd4QSV6FAmbHUurOWeVd8mce20IaRq9TWlh/26BSyOyFiQSkdSInwXM8oVDta4fXcd4155BTKaieJOWu2HSMSxDgJKO6E6gJeaDM5KWGPdcqC3OJ2jM9YrE85orNXUgFJazYncMiaqlS+8YYDJ260aThzJMcTN/jC/ND7hYpuSBmxUwL91IhgmFL9QjMiImayhC1848pevFaozbtDxRCyx/8SLgzh9KjQlJrbgLrgvX9JX8Av1FPv4bcm3LYAAAAASUVORK5CYII="></div><div class="label">${
           data.type
         }: ${data.players !== "" ? data.players : "Supported"}</div>`;
         featuresList.appendChild(multiplayerItem);
@@ -179,7 +179,7 @@
     toggleButton.className = "game_area_details_specs_ctn";
     toggleButton.style.cssText =
       "cursor: pointer; display: flex; align-items: center;";
-    toggleButton.innerHTML = `<div class="icon"><img class="category_icon" src="https://store.cloudflare.steamstatic.com/public/images/v6/ico/ico_workshop.png"></div><div class="label">Toggle Multiplayer Info</div>`;
+    toggleButton.innerHTML = `<div class="icon"><img class="category_icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAgCAQAAAD3NpPtAAAA6klEQVR42u3WoQrCUBSA4VNuuXFgWbNZfIClhXVBMNp8AMEXWDT5BMs+gMk0WLEJSyarVRBMA+FXmXMoBoVzF2T/C3wcDhyOtLX9FIY5KRkLAtfUmAtlK2xTVIZpipqKdsT48owlZXt96MC+ovA5UdXRho5QUnhsqOtqQzvgTsUcqCuw2tCcT61ECHShei91FwJCCga6VPRGFUwwbECf8llTldPHkADoU7ewBER4IvRIX+YbujqvOUATVOcDNfpLKnJNJRhmQC5uwntQoQgWOIu4pTIiluVELqntc0ehuAxLTEpCr33h2r7uCvsuf9qa1PgtAAAAAElFTkSuQmCC"></div><div class="label">Toggle Multiplayer Info</div>`;
     const toggleMenu = document.createElement("div");
     toggleMenu.style.cssText = "display: none;";
     const toggleLocalMultiplayer = createToggle(
